@@ -7,6 +7,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>();
+        StudentFileManager.loadStudents(students);
 
         while (true) {
             System.out.println("\n--- Student Management System ---");
@@ -57,6 +58,7 @@ if (marks < 0 || marks > 100) {
 
                     Student student = new Student(id, name, marks);
                     students.add(student);
+                    StudentFileManager.saveStudents(students);
 
                     System.out.println("Student added successfully!");
                     break;
@@ -100,6 +102,7 @@ case 4:
     for (int i = 0; i < students.size(); i++) {
         if (students.get(i).id == deleteId) {
             students.remove(i);
+            StudentFileManager.saveStudents(students);
             removed = true;
             System.out.println("Student deleted successfully!");
             break;
@@ -133,7 +136,7 @@ case 5:
 
             s.name = newName;
             s.marks = newMarks;
-
+            StudentFileManager.saveStudents(students);
             System.out.println("Student updated successfully!");
             updated = true;
             break;
