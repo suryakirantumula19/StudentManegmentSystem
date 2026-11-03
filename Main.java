@@ -12,8 +12,9 @@ public class Main {
             System.out.println("\n--- Student Management System ---");
             System.out.println("1. Add Student");
             System.out.println("2. View Students");
-            System.out.println("3. Search Student");
-            System.out.println("4. Exit");
+            System.out.println("3. Delete Student");
+            System.out.println("4. Search Student");
+            System.out.println("5. Exit");
 
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
@@ -65,8 +66,28 @@ public class Main {
                         System.out.println("Student not found.");
                     }
                     break;
+                
+case 4:
+    System.out.print("Enter student ID to delete: ");
+    int deleteId = sc.nextInt();
 
-                case 4:
+    boolean removed = false;
+
+    for (int i = 0; i < students.size(); i++) {
+        if (students.get(i).id == deleteId) {
+            students.remove(i);
+            removed = true;
+            System.out.println("Student deleted successfully!");
+            break;
+        }
+    }
+
+    if (!removed) {
+        System.out.println("Student not found.");
+    }
+    break;
+
+                case 5:
                     System.out.println("Exiting application...");
                     sc.close();
                     return;
