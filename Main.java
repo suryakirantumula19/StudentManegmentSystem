@@ -21,15 +21,38 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter student ID: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
+                    
+System.out.print("Enter student ID: ");
+int id = sc.nextInt();
+sc.nextLine();
+
+boolean idExists = false;
+
+for (Student s : students) {
+    if (s.id == id) {
+        idExists = true;
+        break;
+    }
+}
+
+if (idExists) {
+    System.out.println("Student ID already exists!");
+    break;
+}
+
 
                     System.out.print("Enter student name: ");
                     String name = sc.nextLine();
 
-                    System.out.print("Enter student marks: ");
-                    double marks = sc.nextDouble();
+                    
+System.out.print("Enter student marks: ");
+double marks = sc.nextDouble();
+
+if (marks < 0 || marks > 100) {
+    System.out.println("Marks must be between 0 and 100.");
+    break;
+}
+
 
                     Student student = new Student(id, name, marks);
                     students.add(student);
