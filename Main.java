@@ -14,7 +14,8 @@ public class Main {
             System.out.println("2. View Students");
             System.out.println("3. Delete Student");
             System.out.println("4. Search Student");
-            System.out.println("5. Exit");
+            System.out.println("5. Update Student");
+            System.out.println("6. Exit");
 
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
@@ -108,9 +109,44 @@ case 4:
     if (!removed) {
         System.out.println("Student not found.");
     }
+    break;      
+               
+case 5:
+    System.out.print("Enter student ID to update: ");
+    int updateId = sc.nextInt();
+    sc.nextLine();
+
+    boolean updated = false;
+
+    for (Student s : students) {
+        if (s.id == updateId) {
+            System.out.print("Enter new name: ");
+            String newName = sc.nextLine();
+
+            System.out.print("Enter new marks: ");
+            double newMarks = sc.nextDouble();
+
+            if (newMarks < 0 || newMarks > 100) {
+                System.out.println("Marks must be between 0 and 100.");
+                break;
+            }
+
+            s.name = newName;
+            s.marks = newMarks;
+
+            System.out.println("Student updated successfully!");
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        System.out.println("Student not found or update unsuccessful.");
+    }
     break;
 
-                case 5:
+
+                case 6:
                     System.out.println("Exiting application...");
                     sc.close();
                     return;
