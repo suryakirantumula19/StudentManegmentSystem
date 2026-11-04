@@ -1,62 +1,53 @@
-
 # Student Management System
 
-A console-based Student Management System developed using Java.
-It allows users to manage student records through a menu-driven
-application and stores records in a local text file.
-
-## Features
-
-- Add new students
-- View all students
-- Search students by ID
-- Delete student records
-- Update student details
-- Prevent duplicate student IDs
-- Validate marks between 0 and 100
-- Save and load student records using file handling
-- Handle invalid numeric input
+A Java-based Student Management System built using Spring Boot. This project provides REST APIs to manage student records, including creating, retrieving, updating, and deleting students.
 
 ## Technologies Used
-
 - Java
-- Object-Oriented Programming (OOP)
-- ArrayList and Collections
-- Exception and input handling
-- File Handling
-- Git and GitHub
+- Spring Boot
+- Spring Data JPA
+- H2 Database
+- Maven
+- REST API
 
-## Project Structure
+## Features
+- Add a student
+- View all students
+- Search for a student by ID
+- Update student details
+- Delete a student
+- Store student data using H2 Database
 
-StudentManagementSystem/
-├── Main.java
-├── Student.java
-├── StudentService.java
-├── StudentFileManager.java
-├── students.txt (created when data is saved)
-└── README.md
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/students` | Get all students |
+| GET | `/students/{id}` | Get a student by ID |
+| POST | `/students` | Add a student |
+| PUT | `/students/{id}` | Update a student |
+| DELETE | `/students/{id}` | Delete a student |
 
 ## How to Run
 
-1. Install the Java Development Kit (JDK).
+1. Install JDK and configure `JAVA_HOME`.
 2. Clone or download this repository.
-3. Open a terminal in the project folder.
-4. Compile the Java files:
+3. Open the project folder in VS Code.
+4. Run the application:
 
-   javac Student.java StudentFileManager.java StudentService.java Main.java
+   ```powershell
+   .\mvnw.cmd spring-boot:run
+   ```
 
-5. Run the application:
+5. Test the API using Postman.
 
-   java Main
+## Database
 
-## Data Storage
+This project uses an H2 in-memory database. Data is reset when the application restarts.
 
-Student records are saved in a local text file named
-students.txt and loaded when the application starts.
+## Learning Objectives
+- Building REST APIs with Spring Boot
+- Using Spring Data JPA for database operations
+- Understanding HTTP methods and CRUD operations
+- Testing APIs with Postman
 
-## Future Improvements
-
-- Store student records in a MySQL database
-- Add a graphical user interface
-- Add sorting and filtering
-- Improve input validation
