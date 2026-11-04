@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 target/
 *.class
 .idea/
 .vscode/
 *.log
+=======
+*.class
+.vscode/
+students.txt
+>>>>>>> 8f6b1d54eff92ff441ff63c6f05d816bde4f5380
